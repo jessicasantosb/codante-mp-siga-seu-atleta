@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Darker_Grotesque } from 'next/font/google';
 import './globals.css';
 
+import { Navbar } from '@/components';
+
 const darkerGrotesque = Darker_Grotesque({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -17,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={darkerGrotesque.className}>{children}</body>
+      <body className={darkerGrotesque.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
