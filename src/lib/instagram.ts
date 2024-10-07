@@ -9,3 +9,8 @@ export function formatFollowersCount(count: number) {
     return `${count / 1_000_000}M`;
   }
 }
+
+export function extractInstagramAccount(url: string) {
+  const match = url.match(/instagram\.com\/([^/]+)/);
+  return match ? match[1] : null;
+}

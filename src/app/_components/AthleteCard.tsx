@@ -1,14 +1,19 @@
+import Link from 'next/link';
 import { GoPerson } from 'react-icons/go';
+import { RxInstagramLogo } from 'react-icons/rx';
 
 import {
   Avatar,
   AvatarImage,
   Card,
+  CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui';
-import { AthleteWithSport, formatFollowersCount } from '@/lib';
+import { AthleteWithSport } from '@/lib/athletes';
+import { extractInstagramAccount, formatFollowersCount } from '@/lib/instagram';
 
 interface AthleteCardProps {
   athlete: AthleteWithSport;
@@ -40,6 +45,28 @@ export function AthleteCard({ athlete }: AthleteCardProps) {
           {formatFollowersCount(athlete.instagramFollowersCount!)}
         </div>
       </CardHeader>
+
+      <CardContent className='p-4 flex-grow text-sm text-gray-700 font-light'>
+        <p className='min-h-[7.5em] leading-[1.5em]'>{athlete.instagramBio}</p>
+      </CardContent>
+
+      {athlete.instagramImageUrl && (
+        <CardFooter className='flex items-center justify-between border-t p-4 text-sm'>
+          <span className='w-[40%] font-bold truncate'>
+            @{extractInstagramAccount(athlete.instagramUrl!)}
+          </span>
+
+          <Link
+            href={athlete.instagramUrl!}
+            prefetch={false}
+            target='_blank'
+            className='flex items-center space-x-1 text-blue-500'
+          >
+            <RxInstagramLogo className='w-4 h-4' />
+            <span>Ver no Instagram</span>
+          </Link>
+        </CardFooter>
+      )}
     </Card>
   );
 }
