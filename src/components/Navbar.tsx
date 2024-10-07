@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { About } from '@/components/About';
+import { About } from '@/components';
 
 export function Navbar() {
   return (
