@@ -1,16 +1,17 @@
 'use client';
 
-import { Athlete } from '@prisma/client';
+import { AthleteWithSport } from '@/lib';
+import { AthleteCard } from './AthleteCard';
 
 interface AthletesListProps {
-  initialData: Athlete[];
+  initialData: AthleteWithSport[];
 }
 
 export function AthletesList({ initialData }: AthletesListProps) {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  '>
-      {initialData.map(({ id, name }) => (
-        <h4 key={id}>{name}</h4>
+      {initialData.map((athlete) => (
+        <AthleteCard key={athlete.id} athlete={athlete} />
       ))}
     </div>
   );
