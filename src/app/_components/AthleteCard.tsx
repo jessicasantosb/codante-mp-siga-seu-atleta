@@ -29,6 +29,7 @@ export function AthleteCard({ athlete }: AthleteCardProps) {
               <AvatarImage
                 src={athlete.instagramImageUrl}
                 alt='Avatar do Atleta'
+                className='object-cover'
               />
             </Avatar>
           )}
