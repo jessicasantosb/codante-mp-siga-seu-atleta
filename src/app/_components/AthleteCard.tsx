@@ -24,12 +24,14 @@ export function AthleteCard({ athlete }: AthleteCardProps) {
     <Card className='h-full group'>
       <CardHeader className='p-4 flex items-center justify-between flex-row gap-2 overflow-hidden'>
         <div className='flex items-center space-x-4 truncate'>
-          <Avatar className='w-14 h-14 border-2 border-black'>
-            <AvatarImage
-              src={athlete.instagramImageUrl!}
-              alt='Avatar do Atleta'
-            />
-          </Avatar>
+          {athlete.instagramImageUrl && (
+            <Avatar className='w-14 h-14 border-2 border-black'>
+              <AvatarImage
+                src={athlete.instagramImageUrl}
+                alt='Avatar do Atleta'
+              />
+            </Avatar>
+          )}
           <div className='truncate'>
             <CardTitle className='text-lg font-bold truncate'>
               {athlete.instagramName}
@@ -50,14 +52,13 @@ export function AthleteCard({ athlete }: AthleteCardProps) {
         <p className='min-h-[7.5em] leading-[1.5em]'>{athlete.instagramBio}</p>
       </CardContent>
 
-      {athlete.instagramImageUrl && (
+      {athlete.instagramUrl && (
         <CardFooter className='flex items-center justify-between border-t p-4 text-sm'>
           <span className='w-[40%] font-bold truncate'>
-            @{extractInstagramAccount(athlete.instagramUrl!)}
+            @{extractInstagramAccount(athlete.instagramUrl)}
           </span>
-
           <Link
-            href={athlete.instagramUrl!}
+            href={athlete.instagramUrl}
             prefetch={false}
             target='_blank'
             className='flex items-center space-x-1 text-blue-500'
