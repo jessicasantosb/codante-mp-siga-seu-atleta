@@ -1,7 +1,7 @@
 'use client';
 
+import { AthleteCard } from '@/app/_components';
 import { AthleteWithSport } from '@/lib';
-import { AthleteCard } from './AthleteCard';
 
 interface AthletesListProps {
   initialData: AthleteWithSport[];
