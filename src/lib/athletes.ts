@@ -1,7 +1,9 @@
+'use server';
+
 import db from '@/prisma/db';
 import { Athlete } from '@prisma/client';
 
-import { ATHLETES_PER_PAGE } from '@/lib';
+import { ATHLETES_PER_PAGE } from '@/lib/constants';
 
 export type AthleteWithSport = Athlete & {
   sport: { name: string };
@@ -12,7 +14,7 @@ interface FindAthletesParams {
   limit?: number;
 }
 
-export function findAthletes({
+export async function findAthletes({
   offset = 0,
   limit = ATHLETES_PER_PAGE,
 }: FindAthletesParams) {

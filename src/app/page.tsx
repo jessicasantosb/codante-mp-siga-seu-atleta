@@ -1,7 +1,8 @@
 import { Suspense } from 'react';
 
 import { AthletesList } from '@/app/_components';
-import { findAthletes, findSports } from '@/lib';
+import { findAthletes } from '@/lib/athletes';
+import { findSports } from '@/lib/sports';
 
 export default async function Home() {
   const athletes = await findAthletes({});
