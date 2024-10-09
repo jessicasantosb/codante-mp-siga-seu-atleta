@@ -4,6 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
+import { DesktopFilters } from '@/app/_components/Filters/_components'
 import { SearchInput } from '@/components/ui';
 
 export function Filters() {
@@ -12,6 +13,7 @@ export function Filters() {
   const { replace } = useRouter();
 
   const q = searchParams.get('q') || '';
+  const category = searchParams.get('category') || 'all';
 
   const handleSearch = useDebouncedCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,6 +43,8 @@ export function Filters() {
           onChange={handleSearch}
         />
       </div>
+
+      <DesktopFilters category={category} />
     </div>
   );
 }
