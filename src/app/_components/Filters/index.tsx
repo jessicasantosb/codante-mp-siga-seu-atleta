@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { DesktopFilters } from '@/app/_components/Filters/_components'
+import { DesktopFilters } from '@/app/_components/Filters/_components';
 import { SearchInput } from '@/components/ui';
 
 export function Filters() {
@@ -31,6 +31,15 @@ export function Filters() {
     200
   );
 
+  const handleCategoryChange = (selectedCategory: string) => {
+    if (selectedCategory.length === 0) return;
+
+    const params = new URLSearchParams(searchParams);
+    params.set('category', selectedCategory);
+
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <div className='relative flex flex-row md:flex-col lg:flex-row gap-8'>
       <div>
@@ -44,7 +53,10 @@ export function Filters() {
         />
       </div>
 
-      <DesktopFilters category={category} />
+      <DesktopFilters
+        category={category}
+        onCategoryChange={handleCategoryChange}
+      />
     </div>
   );
 }
