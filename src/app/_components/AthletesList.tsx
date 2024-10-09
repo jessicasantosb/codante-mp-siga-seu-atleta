@@ -9,9 +9,10 @@ import { ATHLETES_PER_PAGE } from '@/lib/constants';
 
 interface AthletesListProps {
   initialData: AthleteWithSport[];
+  filters: { searchText: string };
 }
 
-export function AthletesList({ initialData }: AthletesListProps) {
+export function AthletesList({ initialData, filters }: AthletesListProps) {
   const [offset, setOffset] = useState(ATHLETES_PER_PAGE);
   const [athletes, setAthletes] = useState<AthleteWithSport[]>(initialData);
   const [hasMoreAthletes, setHasMoreAthletes] = useState(
@@ -21,7 +22,7 @@ export function AthletesList({ initialData }: AthletesListProps) {
 
   const loadMoreAthletes = async () => {
     if (hasMoreAthletes) {
-      const athletesApi = await findAthletes({ offset });
+      const athletesApi = await findAthletes({ offset, ...filters });
 
       if (athletesApi.length < ATHLETES_PER_PAGE) setHasMoreAthletes(false);
 
