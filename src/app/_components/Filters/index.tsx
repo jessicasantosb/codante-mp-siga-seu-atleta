@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
+import { useDebouncedCallback } from 'use-debounce';
 
 import { SearchInput } from '@/components/ui';
 
@@ -12,18 +13,21 @@ export function Filters() {
 
   const q = searchParams.get('q') || '';
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const params = new URLSearchParams(searchParams);
-    const searchedValue = event.target.value;
+  const handleSearch = useDebouncedCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const params = new URLSearchParams(searchParams);
+      const searchedValue = event.target.value;
 
-    if (searchedValue) {
-      params.set('q', searchedValue);
-    } else {
-      params.delete('q');
-    }
+      if (searchedValue) {
+        params.set('q', searchedValue);
+      } else {
+        params.delete('q');
+      }
 
-    replace(`${pathname}?${params.toString()}`);
-  };
+      replace(`${pathname}?${params.toString()}`);
+    },
+    200
+  );
 
   return (
     <div className='relative flex flex-row md:flex-col lg:flex-row gap-8'>
