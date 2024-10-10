@@ -12,7 +12,10 @@ interface AthletesListProps {
   filters: { searchText: string; category: 'all' | 'olympic' | 'paralympic' };
 }
 
-export function AthletesList({ initialData, filters }: AthletesListProps) {
+export function AthletesListClient({
+  initialData,
+  filters,
+}: AthletesListProps) {
   const [offset, setOffset] = useState(ATHLETES_PER_PAGE);
   const [athletes, setAthletes] = useState<AthleteWithSport[]>(initialData);
   const [hasMoreAthletes, setHasMoreAthletes] = useState(
