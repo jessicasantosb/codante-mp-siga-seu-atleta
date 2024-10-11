@@ -11,12 +11,11 @@ export default async function Home({
   const searchText = searchParams?.q || '';
   const category = searchParams?.category || 'all';
 
-  const sports = await findSports();
-  console.log(sports);
+  const sports = await findSports()
 
   return (
     <main className='container p-4 flex flex-col gap-10'>
-      <Filters />
+      <Filters sports={sports} />
 
       <Suspense key={searchText + category} fallback={<AthletesListSkeleton />}>
         <AthletesList filters={{ searchText, category }} />

@@ -14,6 +14,7 @@ interface FindAthletesParams {
   limit?: number;
   searchText?: string;
   category?: 'all' | 'paralympic' | 'olympic';
+  sport?: string;
 }
 
 export async function findAthletes({
@@ -21,6 +22,7 @@ export async function findAthletes({
   limit = ATHLETES_PER_PAGE,
   searchText = '',
   category = 'all',
+  sport,
 }: FindAthletesParams) {
   const paralympic =
     category === 'all' || category === null
@@ -40,6 +42,7 @@ export async function findAthletes({
           ],
         },
         { paralympic },
+        { sport: { code: sport } },
       ],
     },
   });

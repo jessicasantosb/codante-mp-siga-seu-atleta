@@ -4,10 +4,11 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { DesktopFilters } from '@/app/_components/Filters/_components';
 import { SearchInput } from '@/components/ui';
+import { Sport } from '@prisma/client';
+import { DesktopFilters } from './_components/Desktop';
 
-export function Filters() {
+export function Filters({ sports }: { sports: Sport[] }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -54,6 +55,8 @@ export function Filters() {
       </div>
 
       <DesktopFilters
+        sport=''
+        sports={sports}
         category={category}
         onCategoryChange={handleCategoryChange}
       />

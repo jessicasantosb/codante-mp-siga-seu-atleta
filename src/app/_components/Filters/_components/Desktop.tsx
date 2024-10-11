@@ -1,11 +1,17 @@
-import { CategoriesFilter } from '@/app/_components/Filters/_components';
+import { CategoriesFilter } from '@/app/_components/Filters/_components/Categories';
+import { Sport } from '@prisma/client';
+import { SportsFilter } from './Sports';
 
 interface DesktopFiltersProps {
+  sports: Sport[];
+  sport: string;
   category: string;
   onCategoryChange: (selectedCategory: string) => void;
 }
 
 export function DesktopFilters({
+  sports,
+  sport,
   category,
   onCategoryChange,
 }: DesktopFiltersProps) {
@@ -17,6 +23,8 @@ export function DesktopFilters({
           onCategoryChange={onCategoryChange}
         />
       </div>
+
+      <SportsFilter sport={sport} sports={sports} />
     </div>
   );
 }
