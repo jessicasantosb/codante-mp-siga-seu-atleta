@@ -5,6 +5,7 @@ export * from './command';
 export * from './dialog';
 export * from './input';
 export * from './popover';
+export * from './select';
 export * from './skeleton';
 export * from './toggle';
 export * from './toggle-group';

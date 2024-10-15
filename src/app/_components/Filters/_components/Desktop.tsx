@@ -2,6 +2,7 @@ import { Sport } from '@prisma/client';
 
 import {
   CategoriesFilter,
+  SortBy,
   SportsFilter,
 } from '@/app/_components/Filters/_components';
 
@@ -33,6 +34,7 @@ export function DesktopFilters({
           onSportChange={onSportChange}
         />
       </div>
+      <SortBy />
     </div>
   );
 }
