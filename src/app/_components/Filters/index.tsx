@@ -5,8 +5,8 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
+import { DesktopFilters } from '@/app/_components/Filters/_components';
 import { SearchInput } from '@/components/ui';
-import { DesktopFilters } from './_components/Desktop';
 
 export function Filters({ sports }: { sports: Sport[] }) {
   const searchParams = useSearchParams();

@@ -1,7 +1,9 @@
 import { Sport } from '@prisma/client';
 
-import { CategoriesFilter } from '@/app/_components/Filters/_components/Categories';
-import { SportsFilter } from './Sports';
+import {
+  CategoriesFilter,
+  SportsFilter,
+} from '@/app/_components/Filters/_components';
 
 interface DesktopFiltersProps {
   sports: Sport[];

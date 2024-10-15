@@ -13,7 +13,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui';
-import { SportIcon } from './SportIcon';
+import { SportIcon } from '@/app/_components/Filters/_components';
 
 export function SportsFilter({
   sports,
