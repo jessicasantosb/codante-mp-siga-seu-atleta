@@ -4,7 +4,7 @@ import db from '@/prisma/db';
 import { Athlete } from '@prisma/client';
 
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
-import { Categories } from './types/athletes';
+import { Categories, Dir, Sort } from './types/athletes';
 
 export type AthleteWithSport = Athlete & {
   sport: { name: string };
@@ -16,6 +16,20 @@ interface FindAthletesParams {
   searchText?: string;
   category?: Categories;
   sport?: string;
+  sort?: Sort;
+  dir: Dir;
+}
+
+function getOrderBy(
+  sort: FindAthletesParams['sort'],
+  dir: FindAthletesParams['dir']
+) {
+  if (sort === 'followers') {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return { instagramFollowersCount: dir || 'desc' } as any;
+  }
+  if (sort === 'name') return { instagramName: dir || 'asc' };
+  return { instagramFollowersCount: 'desc' };
 }
 
 export async function findAthletes({
@@ -24,6 +38,8 @@ export async function findAthletes({
   searchText = '',
   category,
   sport,
+  sort,
+  dir,
 }: FindAthletesParams) {
   const paralympic = category ? category === 'paralympic' : undefined;
 
@@ -43,5 +59,6 @@ export async function findAthletes({
         { sport: { code: sport } },
       ],
     },
+    orderBy: getOrderBy(sort, dir),
   });
 }
