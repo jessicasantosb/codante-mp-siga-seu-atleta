@@ -4,7 +4,11 @@ import { AthletesListClient } from './AthletesListClient';
 export async function AthletesList({
   filters,
 }: {
-  filters: { searchText: string; category: 'all' | 'olympic' | 'paralympic' };
+  filters: {
+    searchText: string;
+    category: 'all' | 'olympic' | 'paralympic';
+    sport?: string;
+  };
 }) {
   const athletes = await findAthletes({ ...filters });
 

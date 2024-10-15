@@ -9,7 +9,11 @@ import { ATHLETES_PER_PAGE } from '@/lib/constants';
 
 interface AthletesListProps {
   initialData: AthleteWithSport[];
-  filters: { searchText: string; category: 'all' | 'olympic' | 'paralympic' };
+  filters: {
+    searchText: string;
+    category: 'all' | 'olympic' | 'paralympic';
+    sport?: string;
+  };
 }
 
 export function AthletesListClient({

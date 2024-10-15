@@ -1,5 +1,6 @@
-import { CategoriesFilter } from '@/app/_components/Filters/_components/Categories';
 import { Sport } from '@prisma/client';
+
+import { CategoriesFilter } from '@/app/_components/Filters/_components/Categories';
 import { SportsFilter } from './Sports';
 
 interface DesktopFiltersProps {
@@ -7,6 +8,7 @@ interface DesktopFiltersProps {
   sport: string;
   category: string;
   onCategoryChange: (selectedCategory: string) => void;
+  onSportChange: (sport: string) => void;
 }
 
 export function DesktopFilters({
@@ -14,6 +16,7 @@ export function DesktopFilters({
   sport,
   category,
   onCategoryChange,
+  onSportChange,
 }: DesktopFiltersProps) {
   return (
     <div className='w-full flex justify-between'>
@@ -22,7 +25,11 @@ export function DesktopFilters({
           category={category}
           onCategoryChange={onCategoryChange}
         />
-        <SportsFilter sport={sport} sports={sports} />
+        <SportsFilter
+          sport={sport}
+          sports={sports}
+          onSportChange={onSportChange}
+        />
       </div>
     </div>
   );

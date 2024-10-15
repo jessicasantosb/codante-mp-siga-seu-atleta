@@ -18,27 +18,24 @@ import { SportIcon } from './SportIcon';
 export function SportsFilter({
   sports,
   sport,
+  onSportChange,
 }: {
   sports: Sport[];
   sport: string;
+  onSportChange: (sport: string) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedSport, setSelectedSport] = useState<Sport | null>(
-    sports.find((s) => s.code === sport) || null
-  );
 
   const handleSportChange = (name: string) => {
-    if (name === selectedSport?.name) {
-      setSelectedSport(null);
+    if (name === 'all') {
       setIsOpen(false);
-      // onSportChange('')
+      onSportChange('');
       return;
     }
 
     const selected = sports.find((sport) => sport.name === name) || null;
-    setSelectedSport(selected);
     setIsOpen(false);
-    // onSportChange(selected?.code || '')
+    onSportChange(selected?.code || '');
   };
 
   return (
@@ -54,10 +51,10 @@ export function SportsFilter({
               size={'sm'}
               className='h-full min-h-10 justify-start'
             >
-              {selectedSport ? (
+              {sport ? (
                 <>
-                  <SportIcon code={selectedSport.code} />
-                  {selectedSport.name}
+                  <SportIcon code={sport} />
+                  {sports.find((s) => s.code === sport)?.name}
                 </>
               ) : (
                 <>Todos os esportes</>
@@ -72,6 +69,10 @@ export function SportsFilter({
               <CommandList>
                 <CommandEmpty>Esporte não encontrado</CommandEmpty>
                 <CommandGroup>
+                  <CommandItem value='all' onSelect={handleSportChange}>
+                    <span>Todos os esportes</span>
+                  </CommandItem>
+
                   {sports.map(({ code, name }) => {
                     return (
                       <CommandItem
