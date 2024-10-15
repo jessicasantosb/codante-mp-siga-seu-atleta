@@ -4,6 +4,7 @@ import db from '@/prisma/db';
 import { Athlete } from '@prisma/client';
 
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
+import { Categories } from './types/athletes';
 
 export type AthleteWithSport = Athlete & {
   sport: { name: string };
@@ -13,7 +14,7 @@ interface FindAthletesParams {
   offset?: number;
   limit?: number;
   searchText?: string;
-  category?: 'all' | 'paralympic' | 'olympic';
+  category?: Categories;
   sport?: string;
 }
 
@@ -21,13 +22,10 @@ export async function findAthletes({
   offset = 0,
   limit = ATHLETES_PER_PAGE,
   searchText = '',
-  category = 'all',
+  category,
   sport,
 }: FindAthletesParams) {
-  const paralympic =
-    category === 'all' || category === null
-      ? undefined
-      : category === 'paralympic';
+  const paralympic = category ? category === 'paralympic' : undefined;
 
   return db.athlete.findMany({
     skip: offset,

@@ -1,12 +1,13 @@
 import { findAthletes } from '@/lib/athletes';
 import { AthletesListClient } from './AthletesListClient';
+import { Categories } from '@/lib/types/athletes';
 
 export async function AthletesList({
   filters,
 }: {
   filters: {
     searchText: string;
-    category: 'all' | 'olympic' | 'paralympic';
+    category?: Categories;
     sport?: string;
   };
 }) {

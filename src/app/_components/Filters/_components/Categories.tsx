@@ -4,7 +4,7 @@ export function CategoriesFilter({
   category,
   onCategoryChange,
 }: {
-  category: string;
+  category?: string;
   onCategoryChange: (selectedCategory: string) => void;
 }) {
   return (
@@ -14,7 +14,7 @@ export function CategoriesFilter({
       </span>
       <ToggleGroup
         type='single'
-        value={category}
+        value={category || 'all'}
         onValueChange={onCategoryChange}
       >
         <ToggleGroupItem value='all' aria-label='Selecionar todos'>

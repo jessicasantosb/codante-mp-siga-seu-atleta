@@ -14,7 +14,7 @@ export function Filters({ sports }: { sports: Sport[] }) {
   const { replace } = useRouter();
 
   const q = searchParams.get('q') || '';
-  const category = searchParams.get('category') || 'all';
+  const category = searchParams.get('category') || undefined;
   const sport = searchParams.get('sport') || '';
 
   const handleSearch = useDebouncedCallback(
@@ -37,7 +37,11 @@ export function Filters({ sports }: { sports: Sport[] }) {
     if (selectedCategory.length === 0) return;
 
     const params = new URLSearchParams(searchParams);
-    params.set('category', selectedCategory);
+    if (selectedCategory !== 'all') {
+      params.set('category', selectedCategory);
+    } else {
+      params.delete('category');
+    }
 
     replace(`${pathname}?${params.toString()}`);
   };

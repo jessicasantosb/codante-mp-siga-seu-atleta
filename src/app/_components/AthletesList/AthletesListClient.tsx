@@ -6,12 +6,13 @@ import { useInView } from 'react-intersection-observer';
 import { AthleteCard } from '@/app/_components';
 import { AthleteWithSport, findAthletes } from '@/lib/athletes';
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
+import { Categories } from '@/lib/types/athletes';
 
 interface AthletesListProps {
   initialData: AthleteWithSport[];
   filters: {
     searchText: string;
-    category: 'all' | 'olympic' | 'paralympic';
+    category?: Categories;
     sport?: string;
   };
 }

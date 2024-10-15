@@ -2,18 +2,19 @@ import { Suspense } from 'react';
 
 import { AthletesList, AthletesListSkeleton, Filters } from '@/app/_components';
 import { findSports } from '@/lib/sports';
+import { Categories } from '@/lib/types/athletes';
 
 export default async function Home({
   searchParams,
 }: {
   searchParams: {
     q?: string;
-    category?: 'all' | 'olympic' | 'paralympic';
+    category?: Categories;
     sport?: string;
   };
 }) {
   const searchText = searchParams?.q || '';
-  const category = searchParams?.category || 'all';
+  const category = searchParams?.category;
   const sport = searchParams?.sport;
 
   const sports = await findSports();

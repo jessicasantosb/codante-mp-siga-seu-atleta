@@ -6,7 +6,7 @@ import { SportsFilter } from './Sports';
 interface DesktopFiltersProps {
   sports: Sport[];
   sport: string;
-  category: string;
+  category?: string;
   onCategoryChange: (selectedCategory: string) => void;
   onSportChange: (sport: string) => void;
 }
