@@ -14,7 +14,7 @@ interface DesktopFiltersProps {
   dir: string;
   onCategoryChange: (selectedCategory: string) => void;
   onSportChange: (sport: string) => void;
-  handleSortByChange: () => void;
+  handleSortByChange: (selectedSort: string) => void;
   handleDirectionChange: () => void;
 }
 

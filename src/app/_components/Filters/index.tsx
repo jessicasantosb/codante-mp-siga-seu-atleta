@@ -16,7 +16,7 @@ export function Filters({ sports }: { sports: Sport[] }) {
   const q = searchParams.get('q') || '';
   const category = searchParams.get('category') || undefined;
   const sport = searchParams.get('sport') || '';
-  const sort = '';
+  const sort = searchParams.get('sort') || '';
   const dir = '';
 
   const handleSearch = useDebouncedCallback(
@@ -60,7 +60,11 @@ export function Filters({ sports }: { sports: Sport[] }) {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const handleSortByChange = () => {};
+  const handleSortByChange = (selectedSort: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('sort', selectedSort);
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   const handleDirectionChange = () => {};
 

@@ -11,7 +11,7 @@ import {
 
 interface SortByParams {
   sort: string;
-  handleSortByChange: () => void;
+  handleSortByChange: (selectedSort: string) => void;
   handleDirectionChange: () => void;
   dir: string;
 }
