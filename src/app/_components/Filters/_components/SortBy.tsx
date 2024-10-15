@@ -1,4 +1,7 @@
+import { GoSortAsc, GoSortDesc } from 'react-icons/go';
+
 import {
+  Button,
   Select,
   SelectContent,
   SelectItem,
@@ -6,7 +9,19 @@ import {
   SelectValue,
 } from '@/components/ui';
 
-export function SortBy() {
+interface SortByParams {
+  sort: string;
+  handleSortByChange: () => void;
+  handleDirectionChange: () => void;
+  dir: string;
+}
+
+export function SortBy({
+  sort,
+  handleSortByChange,
+  handleDirectionChange,
+  dir,
+}: SortByParams) {
   return (
     <div className='flex flex-col md:flex-row items-center gap-1'>
       <span className='text-sm underline decoration-yellow-500 block md:hidden'>
@@ -14,7 +29,11 @@ export function SortBy() {
       </span>
 
       <div className='flex items-center gap-1'>
-        <Select defaultValue='followers' value='' onValueChange={() => {}}>
+        <Select
+          defaultValue='followers'
+          value={sort}
+          onValueChange={handleSortByChange}
+        >
           <SelectTrigger className='w-32'>
             <SelectValue placeholder='Seguidores' />
           </SelectTrigger>
@@ -24,6 +43,14 @@ export function SortBy() {
             <SelectItem value='name'>Nome</SelectItem>
           </SelectContent>
         </Select>
+
+        <Button type='button' onClick={handleDirectionChange}>
+          {dir === 'desc' ? (
+            <GoSortDesc className='size-6' />
+          ) : (
+            <GoSortAsc className='size-6' />
+          )}
+        </Button>
       </div>
     </div>
   );

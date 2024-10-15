@@ -10,16 +10,24 @@ interface DesktopFiltersProps {
   sports: Sport[];
   sport: string;
   category?: string;
+  sort: string;
+  dir: string;
   onCategoryChange: (selectedCategory: string) => void;
   onSportChange: (sport: string) => void;
+  handleSortByChange: () => void;
+  handleDirectionChange: () => void;
 }
 
 export function DesktopFilters({
   sports,
   sport,
   category,
+  sort,
+  dir,
   onCategoryChange,
   onSportChange,
+  handleSortByChange,
+  handleDirectionChange,
 }: DesktopFiltersProps) {
   return (
     <div className='w-full flex justify-between'>
@@ -34,7 +42,13 @@ export function DesktopFilters({
           onSportChange={onSportChange}
         />
       </div>
-      <SortBy />
+
+      <SortBy
+        sort={sort}
+        dir={dir}
+        handleSortByChange={handleSortByChange}
+        handleDirectionChange={handleDirectionChange}
+      />
     </div>
   );
 }

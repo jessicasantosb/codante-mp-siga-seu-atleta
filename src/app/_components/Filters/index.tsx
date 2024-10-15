@@ -16,6 +16,8 @@ export function Filters({ sports }: { sports: Sport[] }) {
   const q = searchParams.get('q') || '';
   const category = searchParams.get('category') || undefined;
   const sport = searchParams.get('sport') || '';
+  const sort = '';
+  const dir = '';
 
   const handleSearch = useDebouncedCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,6 +60,10 @@ export function Filters({ sports }: { sports: Sport[] }) {
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const handleSortByChange = () => {};
+
+  const handleDirectionChange = () => {};
+
   return (
     <div className='relative flex flex-row md:flex-col lg:flex-row gap-8'>
       <div>
@@ -75,8 +81,12 @@ export function Filters({ sports }: { sports: Sport[] }) {
         sport={sport}
         sports={sports}
         category={category}
+        sort={sort}
+        dir={dir}
         onCategoryChange={handleCategoryChange}
         onSportChange={handleSportChange}
+        handleSortByChange={handleSortByChange}
+        handleDirectionChange={handleDirectionChange}
       />
     </div>
   );
