@@ -22,9 +22,8 @@ export function DesktopFilters({
           category={category}
           onCategoryChange={onCategoryChange}
         />
+        <SportsFilter sport={sport} sports={sports} />
       </div>
-
-      <SportsFilter sport={sport} sports={sports} />
     </div>
   );
 }

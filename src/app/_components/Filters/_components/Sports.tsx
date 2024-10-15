@@ -54,7 +54,14 @@ export function SportsFilter({
               size={'sm'}
               className='h-full min-h-10 justify-start'
             >
-              {selectedSport ? <>Sport</> : <>Todos os esportes</>}
+              {selectedSport ? (
+                <>
+                  <SportIcon code={selectedSport.code} />
+                  {selectedSport.name}
+                </>
+              ) : (
+                <>Todos os esportes</>
+              )}
             </Button>
           </PopoverTrigger>
 
