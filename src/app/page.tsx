@@ -24,7 +24,7 @@ export default async function Home({
   const sports = await findSports();
 
   return (
-    <main className='container p-4 flex flex-col gap-10'>
+    <main className='p-4 flex flex-col gap-10'>
       <Filters sports={sports} />
 
       <Suspense
