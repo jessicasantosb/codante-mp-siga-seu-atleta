@@ -12,7 +12,7 @@ import {
 interface SortByParams {
   sort: string;
   handleSortByChange: (selectedSort: string) => void;
-  handleDirectionChange: () => void;
+  handleDirectionChange: (params: any) => void;
   dir: string;
 }
 
@@ -25,7 +25,7 @@ export function SortBy({
   return (
     <div className='flex flex-col md:flex-row items-center gap-1'>
       <span className='text-sm underline decoration-yellow-500 block md:hidden'>
-        Ordenação
+        Ordenação:
       </span>
 
       <div className='flex items-center gap-1'>

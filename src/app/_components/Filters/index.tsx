@@ -2,14 +2,10 @@
 
 import { Sport } from '@prisma/client';
 import { useMediaQuery } from '@react-hook/media-query';
+import dynamic from 'next/dynamic';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import React from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
-import {
-  DesktopFilters,
-  MobileFilters,
-} from '@/app/_components/Filters/_components';
 import { SearchInput } from '@/components/ui';
 
 export function Filters({ sports }: { sports: Sport[] }) {
@@ -17,6 +13,16 @@ export function Filters({ sports }: { sports: Sport[] }) {
   const pathname = usePathname();
   const { replace } = useRouter();
   const isMobile = useMediaQuery('only screen and (max-width: 768px)');
+
+  const DesktopFilters = dynamic(
+    () => import('@/app/_components/Filters/_components/Desktop'),
+    { ssr: false }
+  );
+
+  const MobileFilters = dynamic(
+    () => import('@/app/_components/Filters/_components/Mobile'),
+    { ssr: false }
+  );
 
   const q = searchParams.get('q') || '';
   const category = searchParams.get('category') || undefined;
@@ -91,7 +97,17 @@ export function Filters({ sports }: { sports: Sport[] }) {
       </div>
 
       {isMobile ? (
-        <MobileFilters />
+        <MobileFilters
+          sport={sport}
+          sports={sports}
+          category={category}
+          sort={sort}
+          dir={dir}
+          onCategoryChange={handleCategoryChange}
+          onSportChange={handleSportChange}
+          handleSortByChange={handleSortByChange}
+          handleDirectionChange={handleDirectionChange}
+        />
       ) : (
         <DesktopFilters
           sport={sport}

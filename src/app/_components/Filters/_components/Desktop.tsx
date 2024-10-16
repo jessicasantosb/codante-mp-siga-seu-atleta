@@ -5,7 +5,7 @@ import {
 } from '@/app/_components/Filters/_components';
 import { FiltersProps } from './types/filters';
 
-export function DesktopFilters({
+export default function DesktopFilters({
   sports,
   sport,
   category,
