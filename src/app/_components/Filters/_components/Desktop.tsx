@@ -17,7 +17,7 @@ export default function DesktopFilters({
   handleDirectionChange,
 }: FiltersProps) {
   return (
-    <div className='w-full flex justify-between'>
+    <div className='w-full hidden md:flex justify-between'>
       <div className='flex gap-8'>
         <CategoriesFilter
           category={category}

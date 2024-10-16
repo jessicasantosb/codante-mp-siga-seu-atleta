@@ -36,38 +36,40 @@ export default function MobileFilters({
   }
 
   return (
-    <Drawer open={isOpen} onOpenChange={setIsOpen}>
-      <DrawerTrigger className='w-full flex justify-center' asChild>
-        <Button
-          onClick={() => setIsOpen(true)}
-          className='group bg-yellow-300 border-2 border-black cursor-pointer'
+    <div className='w-full flex justify-end md:hidden'>
+      <Drawer open={isOpen} onOpenChange={setIsOpen}>
+        <DrawerTrigger asChild>
+          <Button
+            onClick={() => setIsOpen(true)}
+            className='w-16 group bg-yellow-300 border-2 border-black cursor-pointer'
+          >
+            <GoFilter className='size-6 text-black group-hover:text-white' />
+          </Button>
+        </DrawerTrigger>
+
+        <DrawerContent
+          className='p-4 flex flex-col gap-4'
+          aria-describedby={undefined}
         >
-          <GoFilter className='size-6 text-black group-hover:text-white' />
-        </Button>
-      </DrawerTrigger>
+          <DrawerTitle className='hidden'>Filtros</DrawerTitle>
 
-      <DrawerContent
-        className='p-4 flex flex-col gap-4'
-        aria-describedby={undefined}
-      >
-        <DrawerTitle className='hidden'>Filtros</DrawerTitle>
-
-        <CategoriesFilter
-          category={category}
-          onCategoryChange={closeAfter(onCategoryChange)}
-        />
-        <SportsFilter
-          sport={sport}
-          sports={sports}
-          onSportChange={closeAfter(onSportChange)}
-        />
-        <SortBy
-          sort={sort}
-          dir={dir}
-          handleSortByChange={closeAfter(handleSortByChange)}
-          handleDirectionChange={closeAfter(handleDirectionChange)}
-        />
-      </DrawerContent>
-    </Drawer>
+          <CategoriesFilter
+            category={category}
+            onCategoryChange={closeAfter(onCategoryChange)}
+          />
+          <SportsFilter
+            sport={sport}
+            sports={sports}
+            onSportChange={closeAfter(onSportChange)}
+          />
+          <SortBy
+            sort={sort}
+            dir={dir}
+            handleSortByChange={closeAfter(handleSortByChange)}
+            handleDirectionChange={closeAfter(handleDirectionChange)}
+          />
+        </DrawerContent>
+      </Drawer>
+    </div>
   );
 }
