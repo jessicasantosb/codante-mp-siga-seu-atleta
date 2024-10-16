@@ -8,6 +8,6 @@ export interface FiltersProps {
   dir: string;
   onCategoryChange: (selectedCategory: string) => void;
   onSportChange: (sport: string) => void;
-  handleSortByChange: (selectedSort: string) => void;
-  handleDirectionChange: () => void;
+  onSortByChange: (selectedSort: string) => void;
+  onDirectionChange: () => void;
 }

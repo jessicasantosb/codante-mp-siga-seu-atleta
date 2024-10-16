@@ -23,8 +23,8 @@ export default function MobileFilters({
   dir,
   onCategoryChange,
   onSportChange,
-  handleSortByChange,
-  handleDirectionChange,
+  onSortByChange,
+  onDirectionChange,
 }: FiltersProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -65,8 +65,8 @@ export default function MobileFilters({
           <SortBy
             sort={sort}
             dir={dir}
-            handleSortByChange={closeAfter(handleSortByChange)}
-            handleDirectionChange={closeAfter(handleDirectionChange)}
+            onSortByChange={closeAfter(onSortByChange)}
+            onDirectionChange={closeAfter(onDirectionChange)}
           />
         </DrawerContent>
       </Drawer>

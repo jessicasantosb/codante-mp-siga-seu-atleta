@@ -13,8 +13,8 @@ export default function DesktopFilters({
   dir,
   onCategoryChange,
   onSportChange,
-  handleSortByChange,
-  handleDirectionChange,
+  onSortByChange,
+  onDirectionChange,
 }: FiltersProps) {
   return (
     <div className='w-full hidden md:flex justify-between'>
@@ -33,8 +33,8 @@ export default function DesktopFilters({
       <SortBy
         sort={sort}
         dir={dir}
-        handleSortByChange={handleSortByChange}
-        handleDirectionChange={handleDirectionChange}
+        onSortByChange={onSortByChange}
+        onDirectionChange={onDirectionChange}
       />
     </div>
   );

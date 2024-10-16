@@ -11,15 +11,15 @@ import {
 
 interface SortByParams {
   sort: string;
-  handleSortByChange: (selectedSort: string) => void;
-  handleDirectionChange: (params: any) => void;
+  onSortByChange: (selectedSort: string) => void;
+  onDirectionChange: (params: any) => void;
   dir: string;
 }
 
 export function SortBy({
   sort,
-  handleSortByChange,
-  handleDirectionChange,
+  onSortByChange,
+  onDirectionChange,
   dir,
 }: SortByParams) {
   return (
@@ -32,7 +32,7 @@ export function SortBy({
         <Select
           defaultValue='followers'
           value={sort}
-          onValueChange={handleSortByChange}
+          onValueChange={onSortByChange}
         >
           <SelectTrigger className='w-32'>
             <SelectValue placeholder='Seguidores' />
@@ -44,7 +44,7 @@ export function SortBy({
           </SelectContent>
         </Select>
 
-        <Button type='button' onClick={handleDirectionChange}>
+        <Button type='button' onClick={onDirectionChange}>
           {dir === 'desc' ? (
             <GoSortDesc className='size-6' />
           ) : (

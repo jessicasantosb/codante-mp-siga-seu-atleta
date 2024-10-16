@@ -93,8 +93,8 @@ export function Filters({ sports }: { sports: Sport[] }) {
         dir={dir}
         onCategoryChange={handleCategoryChange}
         onSportChange={handleSportChange}
-        handleSortByChange={handleSortByChange}
-        handleDirectionChange={handleDirectionChange}
+        onSortByChange={handleSortByChange}
+        onDirectionChange={handleDirectionChange}
       />
 
       <DesktopFilters
@@ -105,8 +105,8 @@ export function Filters({ sports }: { sports: Sport[] }) {
         dir={dir}
         onCategoryChange={handleCategoryChange}
         onSportChange={handleSportChange}
-        handleSortByChange={handleSortByChange}
-        handleDirectionChange={handleDirectionChange}
+        onSortByChange={handleSortByChange}
+        onDirectionChange={handleDirectionChange}
       />
     </div>
   );
