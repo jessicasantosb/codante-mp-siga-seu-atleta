@@ -1,6 +1,6 @@
 import { findAthletes } from '@/lib/athletes';
+import { Categories, Dir, Sort } from '@/lib/types/athletes';
 import { AthletesListClient } from './AthletesListClient';
-import { Categories } from '@/lib/types/athletes';
 
 export async function AthletesList({
   filters,
@@ -9,6 +9,8 @@ export async function AthletesList({
     searchText: string;
     category?: Categories;
     sport?: string;
+    sort: Sort;
+    dir: Dir;
   };
 }) {
   const athletes = await findAthletes({ ...filters });
