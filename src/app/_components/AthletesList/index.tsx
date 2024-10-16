@@ -9,8 +9,8 @@ export async function AthletesList({
     searchText: string;
     category?: Categories;
     sport?: string;
-    sort: Sort;
-    dir: Dir;
+    sort?: Sort;
+    dir?: Dir;
   };
 }) {
   const athletes = await findAthletes({ ...filters });

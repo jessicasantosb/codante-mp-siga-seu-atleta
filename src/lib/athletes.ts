@@ -17,19 +17,16 @@ interface FindAthletesParams {
   category?: Categories;
   sport?: string;
   sort?: Sort;
-  dir: Dir;
+  dir?: Dir;
 }
 
 function getOrderBy(
   sort: FindAthletesParams['sort'],
   dir: FindAthletesParams['dir']
 ) {
-  if (sort === 'followers') {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return { instagramFollowersCount: dir || 'desc' } as any;
-  }
-  if (sort === 'name') return { instagramName: dir || 'asc' };
-  return { instagramFollowersCount: 'desc' };
+  if (sort === 'name') return { instagramName: dir || 'desc' };
+
+  return { instagramFollowersCount: dir || 'desc' };
 }
 
 export async function findAthletes({
@@ -49,12 +46,7 @@ export async function findAthletes({
     include: { sport: { select: { name: true } } },
     where: {
       AND: [
-        {
-          OR: [
-            { instagramName: { contains: searchText } },
-            { instagramBio: { contains: searchText } },
-          ],
-        },
+        { instagramName: { contains: searchText } },
         { paralympic },
         { sport: { code: sport } },
       ],

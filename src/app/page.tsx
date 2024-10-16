@@ -18,8 +18,8 @@ export default async function Home({
   const searchText = searchParams?.q || '';
   const category = searchParams?.category;
   const sport = searchParams?.sport;
-  const sort = searchParams?.sort || 'followers';
-  const dir = searchParams?.dir || 'desc';
+  const sort = searchParams?.sort;
+  const dir = searchParams?.dir;
 
   const sports = await findSports();
 
