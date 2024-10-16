@@ -1,22 +1,9 @@
-import { Sport } from '@prisma/client';
-
 import {
   CategoriesFilter,
   SortBy,
   SportsFilter,
 } from '@/app/_components/Filters/_components';
-
-interface DesktopFiltersProps {
-  sports: Sport[];
-  sport: string;
-  category?: string;
-  sort: string;
-  dir: string;
-  onCategoryChange: (selectedCategory: string) => void;
-  onSportChange: (sport: string) => void;
-  handleSortByChange: (selectedSort: string) => void;
-  handleDirectionChange: () => void;
-}
+import { FiltersProps } from './types/filters';
 
 export function DesktopFilters({
   sports,
@@ -28,7 +15,7 @@ export function DesktopFilters({
   onSportChange,
   handleSortByChange,
   handleDirectionChange,
-}: DesktopFiltersProps) {
+}: FiltersProps) {
   return (
     <div className='w-full flex justify-between'>
       <div className='flex gap-8'>
