@@ -29,7 +29,10 @@ export function SortBy({
       </span>
 
       <div className='flex items-center gap-1'>
-        <Select value={sort || 'followers'} onValueChange={onSortByChange}>
+        <Select
+          value={sort || 'followers'}
+          onValueChange={onSortByChange}
+        >
           <SelectTrigger className='w-32'>
             <SelectValue placeholder='Seguidores' />
           </SelectTrigger>
@@ -41,10 +44,10 @@ export function SortBy({
         </Select>
 
         <Button type='button' onClick={onDirectionChange}>
-          {dir === 'desc' ? (
-            <GoSortDesc className='size-6' />
-          ) : (
+          {dir === 'asc' ? (
             <GoSortAsc className='size-6' />
+          ) : (
+            <GoSortDesc className='size-6' />
           )}
         </Button>
       </div>
