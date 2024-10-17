@@ -11,7 +11,7 @@ import { Categories } from '@/lib/types/athletes';
 interface AthletesListProps {
   initialData: AthleteWithSport[];
   filters: {
-    searchText: string;
+    searchText?: string;
     category?: Categories;
     sport?: string;
   };

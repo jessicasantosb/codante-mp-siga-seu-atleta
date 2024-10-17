@@ -25,7 +25,10 @@ export default async function Home({
 
   return (
     <main className='p-4 flex flex-col gap-10'>
-      <Filters sports={sports} />
+      <Filters
+        sports={sports}
+        filtersParams={{ searchText, category, sport, sort, dir }}
+      />
 
       <Suspense
         key={searchText + category + sport + sort + dir}

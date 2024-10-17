@@ -21,7 +21,7 @@ export function SportsFilter({
   onSportChange,
 }: {
   sports: Sport[];
-  sport: string;
+  sport?: string;
   onSportChange: (sport: string) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);

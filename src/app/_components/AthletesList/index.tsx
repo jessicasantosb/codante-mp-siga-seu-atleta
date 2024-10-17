@@ -6,7 +6,7 @@ export async function AthletesList({
   filters,
 }: {
   filters: {
-    searchText: string;
+    searchText?: string;
     category?: Categories;
     sport?: string;
     sort?: Sort;

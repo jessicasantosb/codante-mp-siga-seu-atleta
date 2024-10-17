@@ -1,13 +1,22 @@
+import { Categories, Dir, Sort } from '@/lib/types/athletes';
 import { Sport } from '@prisma/client';
 
 export interface FiltersProps {
   sports: Sport[];
-  sport: string;
+  sport?: string;
   category?: string;
-  sort: string;
-  dir: string;
+  sort?: string;
+  dir?: string;
   onCategoryChange: (selectedCategory: string) => void;
   onSportChange: (sport: string) => void;
   onSortByChange: (selectedSort: string) => void;
   onDirectionChange: () => void;
+}
+
+export interface FiltersParams {
+  searchText?: string;
+  category?: Categories;
+  sport?: string;
+  sort?: Sort;
+  dir?: Dir;
 }

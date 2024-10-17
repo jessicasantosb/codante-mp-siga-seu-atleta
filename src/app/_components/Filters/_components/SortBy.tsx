@@ -10,10 +10,10 @@ import {
 } from '@/components/ui';
 
 interface SortByParams {
-  sort: string;
+  sort?: string;
   onSortByChange: (selectedSort: string) => void;
+  dir?: string;
   onDirectionChange: (params: any) => void;
-  dir: string;
 }
 
 export function SortBy({
@@ -29,10 +29,7 @@ export function SortBy({
       </span>
 
       <div className='flex items-center gap-1'>
-        <Select
-          value={sort || 'followers'}
-          onValueChange={onSortByChange}
-        >
+        <Select value={sort || 'followers'} onValueChange={onSortByChange}>
           <SelectTrigger className='w-32'>
             <SelectValue placeholder='Seguidores' />
           </SelectTrigger>

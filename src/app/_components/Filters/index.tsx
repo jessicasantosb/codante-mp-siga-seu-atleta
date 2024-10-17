@@ -7,17 +7,19 @@ import { useDebouncedCallback } from 'use-debounce';
 import { SearchInput } from '@/components/ui';
 import DesktopFilters from './_components/Desktop';
 import MobileFilters from './_components/Mobile';
+import { FiltersParams } from './_components/types/filters';
 
-export function Filters({ sports }: { sports: Sport[] }) {
-  const searchParams = useSearchParams();
+interface FiltersProps {
+  sports: Sport[];
+  filtersParams: FiltersParams;
+}
+
+export function Filters({ sports, filtersParams }: FiltersProps) {
   const pathname = usePathname();
   const { replace } = useRouter();
+  const searchParams = useSearchParams();
 
-  const q = searchParams.get('q') || '';
-  const category = searchParams.get('category') || undefined;
-  const sport = searchParams.get('sport') || '';
-  const sort = searchParams.get('sort') || '';
-  const dir = searchParams.get('dir') || 'desc';
+  const { searchText, category, sport, sort, dir } = filtersParams;
 
   const handleSearch = useDebouncedCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,7 +82,7 @@ export function Filters({ sports }: { sports: Sport[] }) {
           type='text'
           name='q'
           placeholder='Pesquisar'
-          defaultValue={q}
+          defaultValue={searchText}
           onChange={handleSearch}
         />
       </div>
