@@ -4,11 +4,11 @@
 </p>
 <h1 align="center">Siga seu atleta</h1>
 <p align="center">
-  <em>Este projeto é <code>FullStack</code> e foi desenvolvido em Typescrypt e NextJS com base no Mini Projeto{' '}
+  <em>Este projeto é <code>FullStack</code> e foi desenvolvido em Typescrypt e NextJS com base no Mini Projeto
     <a
       href='https://codante.io/mini-projetos/siga-seu-atleta'
     > Siga seu atleta </a> 
-    da plataforma{' '}
+    da plataforma
     <a
       href='https://codante.io'      
     > Codante </a>
