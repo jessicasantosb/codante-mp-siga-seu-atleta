@@ -29,11 +29,7 @@ export function SortBy({
       </span>
 
       <div className='flex items-center gap-1'>
-        <Select
-          defaultValue='followers'
-          value={sort}
-          onValueChange={onSortByChange}
-        >
+        <Select value={sort || 'followers'} onValueChange={onSortByChange}>
           <SelectTrigger className='w-32'>
             <SelectValue placeholder='Seguidores' />
           </SelectTrigger>
