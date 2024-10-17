@@ -2,7 +2,7 @@ import {
   CategoriesFilter,
   SortBy,
   SportsFilter,
-} from './';
+} from '@/app/_components/Filters/_components';
 import { FiltersProps } from '@/app/_components/Filters/_components/types';
 
 export function DesktopFilters({
