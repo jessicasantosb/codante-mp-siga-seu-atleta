@@ -1,6 +1,6 @@
-import { Sport } from '@prisma/client';
 import { useState } from 'react';
 
+import { SportIcon } from '@/app/_components/Filters/_components';
 import {
   Button,
   Command,
@@ -13,17 +13,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui';
-import { SportIcon } from '@/app/_components/Filters/_components';
+import { SportsParams } from './types/filters';
 
-export function SportsFilter({
-  sports,
-  sport,
-  onSportChange,
-}: {
-  sports: Sport[];
-  sport?: string;
-  onSportChange: (sport: string) => void;
-}) {
+export function SportsFilter({ sports, sport, onSportChange }: SportsParams) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSportChange = (name: string) => {

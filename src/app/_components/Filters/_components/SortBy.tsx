@@ -8,13 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui';
-
-interface SortByParams {
-  sort?: string;
-  onSortByChange: (selectedSort: string) => void;
-  dir?: string;
-  onDirectionChange: (params: any) => void;
-}
+import { SortByParams } from './types/filters';
 
 export function SortBy({
   sort,

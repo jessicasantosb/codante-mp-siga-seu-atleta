@@ -20,3 +20,21 @@ export interface FiltersParams {
   sort?: Sort;
   dir?: Dir;
 }
+
+export interface SortByParams {
+  sort?: string;
+  onSortByChange: (selectedSort: string) => void;
+  dir?: string;
+  onDirectionChange: (params: any) => void;
+}
+
+export interface CategoriesParams {
+  category?: string;
+  onCategoryChange: (selectedCategory: string) => void;
+}
+
+export interface SportsParams {
+  sports: Sport[];
+  sport?: string;
+  onSportChange: (sport: string) => void;
+}

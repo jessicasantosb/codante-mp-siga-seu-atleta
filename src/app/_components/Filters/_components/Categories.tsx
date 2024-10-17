@@ -1,12 +1,10 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui';
+import { CategoriesParams } from './types/filters';
 
 export function CategoriesFilter({
   category,
   onCategoryChange,
-}: {
-  category?: string;
-  onCategoryChange: (selectedCategory: string) => void;
-}) {
+}: CategoriesParams) {
   return (
     <div className='flex flex-col md:flex-row items-center gap-1 mt-10 md:mt-0'>
       <span className='text-sm underline decoration-yellow-500 block md:hidden'>
