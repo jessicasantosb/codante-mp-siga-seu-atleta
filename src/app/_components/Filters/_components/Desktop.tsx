@@ -13,7 +13,7 @@ export default function DesktopFilters({
   onSortByChange,
   onDirectionChange,
 }: FiltersProps) {
-  const { sport, category, sort, dir } = filtersParams;
+  const { sportCode, category, sort, dir } = filtersParams;
 
   return (
     <div className='w-full hidden md:flex justify-between'>
@@ -23,7 +23,7 @@ export default function DesktopFilters({
           onCategoryChange={onCategoryChange}
         />
         <SportsFilter
-          sport={sport}
+          sportCode={sportCode}
           sports={sports}
           onSportChange={onSportChange}
         />

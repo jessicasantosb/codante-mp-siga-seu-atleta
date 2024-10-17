@@ -34,7 +34,10 @@ export function SortBy({
           </SelectContent>
         </Select>
 
-        <Button type='button' onClick={onDirectionChange}>
+        <Button
+          type='button'
+          onClick={() => onDirectionChange(dir === 'desc' ? 'asc' : 'desc')}
+        >
           {dir === 'asc' ? (
             <GoSortAsc className='size-6' />
           ) : (

@@ -4,34 +4,34 @@ import { Sport } from '@prisma/client';
 export interface FiltersProps {
   sports: Sport[];
   filtersParams: FiltersParams;
-  onCategoryChange: (selectedCategory: string) => void;
-  onSportChange: (sport: string) => void;
-  onSortByChange: (selectedSort: string) => void;
-  onDirectionChange: () => void;
+  onCategoryChange: (selectedCategory: Categories) => void;
+  onSportChange: (selectedSport: string) => void;
+  onSortByChange: (selectedSort: Sort) => void;
+  onDirectionChange: (selectedDirection: Dir) => void;
 }
 
 export interface FiltersParams {
   searchText?: string;
   category?: Categories;
-  sport?: string;
+  sportCode?: string;
   sort?: Sort;
   dir?: Dir;
 }
 
 export interface SortByParams {
-  sort?: string;
-  onSortByChange: (selectedSort: string) => void;
-  dir?: string;
-  onDirectionChange: (params: any) => void;
+  sort?: Sort;
+  onSortByChange: (selectedSort: Sort) => void;
+  dir?: Dir;
+  onDirectionChange: (selectedDirection: Dir) => void;
 }
 
 export interface CategoriesParams {
-  category?: string;
-  onCategoryChange: (selectedCategory: string) => void;
+  category?: Categories;
+  onCategoryChange: (selectedCategory: Categories) => void;
 }
 
 export interface SportsParams {
   sports: Sport[];
-  sport?: string;
-  onSportChange: (sport: string) => void;
+  sportCode?: string;
+  onSportChange: (selectedSport: string) => void;
 }

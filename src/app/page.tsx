@@ -17,7 +17,7 @@ export default async function Home({
 }) {
   const searchText = searchParams?.q || '';
   const category = searchParams?.category;
-  const sport = searchParams?.sport;
+  const sportCode = searchParams?.sport;
   const sort = searchParams?.sort;
   const dir = searchParams?.dir;
 
@@ -27,14 +27,16 @@ export default async function Home({
     <main className='p-4 flex flex-col gap-10'>
       <Filters
         sports={sports}
-        filtersParams={{ searchText, category, sport, sort, dir }}
+        filtersParams={{ searchText, category, sportCode, sort, dir }}
       />
 
       <Suspense
-        key={searchText + category + sport + sort + dir}
+        key={searchText + category + sportCode + sort + dir}
         fallback={<AthletesListSkeleton />}
       >
-        <AthletesList filters={{ searchText, category, sport, sort, dir }} />
+        <AthletesList
+          filters={{ searchText, category, sportCode, sort, dir }}
+        />
       </Suspense>
     </main>
   );

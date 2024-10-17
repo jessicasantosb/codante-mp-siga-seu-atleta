@@ -25,7 +25,7 @@ export default function MobileFilters({
 }: FiltersProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { sport, category, sort, dir } = filtersParams;
+  const { sportCode, category, sort, dir } = filtersParams;
 
   function closeAfter<T, R>(callback: (params: T) => R) {
     return (params: T) => {
@@ -57,7 +57,7 @@ export default function MobileFilters({
             onCategoryChange={closeAfter(onCategoryChange)}
           />
           <SportsFilter
-            sport={sport}
+            sportCode={sportCode}
             sports={sports}
             onSportChange={closeAfter(onSportChange)}
           />

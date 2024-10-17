@@ -15,8 +15,8 @@ import {
 } from '@/components/ui';
 import { SportsParams } from './types/filters';
 
-export function SportsFilter({ sports, sport, onSportChange }: SportsParams) {
-  const [isOpen, setIsOpen] = useState(false);
+export function SportsFilter({ sports, sportCode, onSportChange }: SportsParams) {
+  const [isOpen, setIsOpen] = useState(false);  
 
   const handleSportChange = (name: string) => {
     if (name === 'all') {
@@ -25,7 +25,7 @@ export function SportsFilter({ sports, sport, onSportChange }: SportsParams) {
       return;
     }
 
-    const selected = sports.find((sport) => sport.name === name) || null;
+    const selected = sports.find((sport) => sport.name === name);
     setIsOpen(false);
     onSportChange(selected?.code || '');
   };
@@ -43,10 +43,10 @@ export function SportsFilter({ sports, sport, onSportChange }: SportsParams) {
               size={'sm'}
               className='h-full min-h-10 justify-start'
             >
-              {sport ? (
+              {sportCode ? (
                 <>
-                  <SportIcon code={sport} />
-                  {sports.find((s) => s.code === sport)?.name}
+                  <SportIcon code={sportCode} />
+                  {sports.find((sport) => sport.code === sportCode)?.name}
                 </>
               ) : (
                 <>Todos os esportes</>

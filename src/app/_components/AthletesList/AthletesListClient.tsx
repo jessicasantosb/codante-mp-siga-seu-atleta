@@ -4,17 +4,13 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { AthleteCard } from '@/app/_components';
+import { FiltersParams } from '@/app/_components/Filters/_components/types/filters';
 import { AthleteWithSport, findAthletes } from '@/lib/athletes';
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
-import { Categories } from '@/lib/types/athletes';
 
 interface AthletesListProps {
   initialData: AthleteWithSport[];
-  filters: {
-    searchText?: string;
-    category?: Categories;
-    sport?: string;
-  };
+  filters: FiltersParams;
 }
 
 export function AthletesListClient({

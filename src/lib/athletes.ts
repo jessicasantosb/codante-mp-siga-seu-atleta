@@ -15,7 +15,7 @@ interface FindAthletesParams {
   limit?: number;
   searchText?: string;
   category?: Categories;
-  sport?: string;
+  sportCode?: string;
   sort?: Sort;
   dir?: Dir;
 }
@@ -34,7 +34,7 @@ export async function findAthletes({
   limit = ATHLETES_PER_PAGE,
   searchText = '',
   category,
-  sport,
+  sportCode,
   sort,
   dir,
 }: FindAthletesParams) {
@@ -48,7 +48,7 @@ export async function findAthletes({
       AND: [
         { instagramName: { contains: searchText } },
         { paralympic },
-        { sport: { code: sport } },
+        { sport: { code: sportCode } },
       ],
     },
     orderBy: getOrderBy(sort, dir),

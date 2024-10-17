@@ -1,18 +1,8 @@
 import { findAthletes } from '@/lib/athletes';
-import { Categories, Dir, Sort } from '@/lib/types/athletes';
+import { FiltersParams } from '../Filters/_components/types/filters';
 import { AthletesListClient } from './AthletesListClient';
 
-export async function AthletesList({
-  filters,
-}: {
-  filters: {
-    searchText?: string;
-    category?: Categories;
-    sport?: string;
-    sort?: Sort;
-    dir?: Dir;
-  };
-}) {
+export async function AthletesList({ filters }: { filters: FiltersParams }) {
   const athletes = await findAthletes({ ...filters });
 
   if (!athletes.length)

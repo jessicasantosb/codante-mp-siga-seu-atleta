@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { SearchInput } from '@/components/ui';
+import { Dir } from '@/lib/types/athletes';
 import DesktopFilters from './_components/Desktop';
 import MobileFilters from './_components/Mobile';
 import { FiltersParams } from './_components/types/filters';
@@ -19,7 +20,7 @@ export function Filters({ sports, filtersParams }: FiltersProps) {
   const { replace } = useRouter();
   const searchParams = useSearchParams();
 
-  const { searchText, category, sport, sort, dir } = filtersParams;
+  const { searchText, ...restFilters } = filtersParams;
 
   const handleSearch = useDebouncedCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,9 +69,9 @@ export function Filters({ sports, filtersParams }: FiltersProps) {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const handleDirectionChange = () => {
+  const handleDirectionChange = (selectedDirection: Dir) => {
     const params = new URLSearchParams(searchParams);
-    params.set('dir', dir === 'desc' ? 'asc' : 'desc');
+    params.set('dir', selectedDirection);
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -89,7 +90,7 @@ export function Filters({ sports, filtersParams }: FiltersProps) {
 
       <MobileFilters
         sports={sports}
-        filtersParams={{ sport, category, sort, dir }}
+        filtersParams={restFilters}
         onCategoryChange={handleCategoryChange}
         onSportChange={handleSportChange}
         onSortByChange={handleSortByChange}
@@ -98,7 +99,7 @@ export function Filters({ sports, filtersParams }: FiltersProps) {
 
       <DesktopFilters
         sports={sports}
-        filtersParams={{ sport, category, sort, dir }}
+        filtersParams={restFilters}
         onCategoryChange={handleCategoryChange}
         onSportChange={handleSportChange}
         onSortByChange={handleSortByChange}
