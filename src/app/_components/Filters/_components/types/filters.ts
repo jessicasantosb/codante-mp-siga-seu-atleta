@@ -3,10 +3,7 @@ import { Sport } from '@prisma/client';
 
 export interface FiltersProps {
   sports: Sport[];
-  sport?: string;
-  category?: string;
-  sort?: string;
-  dir?: string;
+  filtersParams: FiltersParams;
   onCategoryChange: (selectedCategory: string) => void;
   onSportChange: (sport: string) => void;
   onSortByChange: (selectedSort: string) => void;

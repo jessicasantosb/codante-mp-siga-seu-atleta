@@ -17,16 +17,15 @@ import { FiltersProps } from './types/filters';
 
 export default function MobileFilters({
   sports,
-  sport,
-  category,
-  sort,
-  dir,
+  filtersParams,
   onCategoryChange,
   onSportChange,
   onSortByChange,
   onDirectionChange,
 }: FiltersProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { sport, category, sort, dir } = filtersParams;
 
   function closeAfter<T, R>(callback: (params: T) => R) {
     return (params: T) => {

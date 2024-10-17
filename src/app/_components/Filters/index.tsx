@@ -88,11 +88,8 @@ export function Filters({ sports, filtersParams }: FiltersProps) {
       </div>
 
       <MobileFilters
-        sport={sport}
         sports={sports}
-        category={category}
-        sort={sort}
-        dir={dir}
+        filtersParams={{ sport, category, sort, dir }}
         onCategoryChange={handleCategoryChange}
         onSportChange={handleSportChange}
         onSortByChange={handleSortByChange}
@@ -100,11 +97,8 @@ export function Filters({ sports, filtersParams }: FiltersProps) {
       />
 
       <DesktopFilters
-        sport={sport}
         sports={sports}
-        category={category}
-        sort={sort}
-        dir={dir}
+        filtersParams={{ sport, category, sort, dir }}
         onCategoryChange={handleCategoryChange}
         onSportChange={handleSportChange}
         onSortByChange={handleSortByChange}

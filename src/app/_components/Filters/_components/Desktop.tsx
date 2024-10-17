@@ -7,15 +7,14 @@ import { FiltersProps } from './types/filters';
 
 export default function DesktopFilters({
   sports,
-  sport,
-  category,
-  sort,
-  dir,
+  filtersParams,
   onCategoryChange,
   onSportChange,
   onSortByChange,
   onDirectionChange,
 }: FiltersProps) {
+  const { sport, category, sort, dir } = filtersParams;
+
   return (
     <div className='w-full hidden md:flex justify-between'>
       <div className='flex gap-8'>
