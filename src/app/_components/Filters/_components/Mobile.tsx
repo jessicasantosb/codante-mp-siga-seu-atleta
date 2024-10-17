@@ -6,6 +6,7 @@ import {
   SortBy,
   SportsFilter,
 } from '@/app/_components/Filters/_components';
+import { FiltersProps } from '@/app/_components/Filters/_components/types';
 import {
   Button,
   Drawer,
@@ -13,9 +14,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui';
-import { FiltersProps } from './types/filters';
 
-export default function MobileFilters({
+export function MobileFilters({
   sports,
   filtersParams,
   onCategoryChange,

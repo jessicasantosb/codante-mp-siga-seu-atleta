@@ -1,6 +1,6 @@
+import { AthletesListClient } from '@/app/_components/AthletesList/AthletesListClient';
+import { FiltersParams } from '@/app/_components/Filters/_components/types';
 import { findAthletes } from '@/lib/athletes';
-import { FiltersParams } from '../Filters/_components/types/filters';
-import { AthletesListClient } from './AthletesListClient';
 
 export async function AthletesList({ filters }: { filters: FiltersParams }) {
   const athletes = await findAthletes({ ...filters });

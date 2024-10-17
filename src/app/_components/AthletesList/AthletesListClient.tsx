@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { AthleteCard } from '@/app/_components';
-import { FiltersParams } from '@/app/_components/Filters/_components/types/filters';
+import { FiltersParams } from '@/app/_components/Filters/_components/types';
 import { AthleteWithSport, findAthletes } from '@/lib/athletes';
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
 

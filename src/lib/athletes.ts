@@ -4,7 +4,7 @@ import db from '@/prisma/db';
 import { Athlete } from '@prisma/client';
 
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
-import { Categories, Dir, Sort } from './types/athletes';
+import { Categories, Dir, Sort } from '@/lib/types';
 
 export type AthleteWithSport = Athlete & {
   sport: { name: string };

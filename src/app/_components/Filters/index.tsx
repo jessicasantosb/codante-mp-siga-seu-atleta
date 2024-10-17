@@ -4,11 +4,13 @@ import { Sport } from '@prisma/client';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
+import {
+  DesktopFilters,
+  MobileFilters,
+} from '@/app/_components/Filters/_components/';
+import { FiltersParams } from '@/app/_components/Filters/_components/types';
 import { SearchInput } from '@/components/ui';
-import { Dir } from '@/lib/types/athletes';
-import DesktopFilters from './_components/Desktop';
-import MobileFilters from './_components/Mobile';
-import { FiltersParams } from './_components/types/filters';
+import { Dir } from '@/lib/types';
 
 interface FiltersProps {
   sports: Sport[];

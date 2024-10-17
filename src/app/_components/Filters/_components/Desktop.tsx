@@ -2,10 +2,10 @@ import {
   CategoriesFilter,
   SortBy,
   SportsFilter,
-} from '@/app/_components/Filters/_components';
-import { FiltersProps } from './types/filters';
+} from './';
+import { FiltersProps } from '@/app/_components/Filters/_components/types';
 
-export default function DesktopFilters({
+export function DesktopFilters({
   sports,
   filtersParams,
   onCategoryChange,

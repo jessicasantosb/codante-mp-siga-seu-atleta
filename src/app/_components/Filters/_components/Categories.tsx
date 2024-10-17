@@ -1,5 +1,5 @@
+import { CategoriesParams } from '@/app/_components/Filters/_components/types';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui';
-import { CategoriesParams } from './types/filters';
 
 export function CategoriesFilter({
   category,

@@ -1,5 +1,6 @@
-import { Categories, Dir, Sort } from '@/lib/types/athletes';
 import { Sport } from '@prisma/client';
+
+import { Categories, Dir, Sort } from '@/lib/types/athletes';
 
 export interface FiltersProps {
   sports: Sport[];

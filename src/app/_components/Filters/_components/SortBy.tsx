@@ -1,5 +1,6 @@
 import { GoSortAsc, GoSortDesc } from 'react-icons/go';
 
+import { SortByParams } from '@/app/_components/Filters/_components/types';
 import {
   Button,
   Select,
@@ -8,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui';
-import { SortByParams } from './types/filters';
 
 export function SortBy({
   sort,

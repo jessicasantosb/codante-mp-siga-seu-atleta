@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { SportIcon } from '@/app/_components/Filters/_components';
+import { SportsParams } from '@/app/_components/Filters/_components/types';
 import {
   Button,
   Command,
@@ -13,10 +14,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui';
-import { SportsParams } from './types/filters';
 
-export function SportsFilter({ sports, sportCode, onSportChange }: SportsParams) {
-  const [isOpen, setIsOpen] = useState(false);  
+export function SportsFilter({
+  sports,
+  sportCode,
+  onSportChange,
+}: SportsParams) {
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSportChange = (name: string) => {
     if (name === 'all') {
