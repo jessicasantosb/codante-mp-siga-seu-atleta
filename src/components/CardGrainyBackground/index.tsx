@@ -1,14 +1,22 @@
-import { getRandomHexColor } from '@/lib/utils';
-import './index.css';
+"use client";
+
+import { getRandomHexColor } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import "./index.css";
 
 export function CardGrainyBackground() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <div
-      className='absolute inset-0 border-2 border-dashed border-black'
-      style={{ background: getRandomHexColor() }}
-      suppressHydrationWarning
+      className="absolute inset-0 border-2 border-dashed border-black -z-10"
+      style={{ background: isClient ? getRandomHexColor() : "" }}
     >
-      <div className='h-full w-full card' />
+      <div className="size-full card" />
     </div>
   );
 }
